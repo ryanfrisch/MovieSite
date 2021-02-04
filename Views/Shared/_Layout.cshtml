@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Joel Hilton Film Collection</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+</head>
+
+<body>
+    <h1>@ViewBag.Title</h1>
+    <a></a>
+    <a asp-controller="Home" asp-action="Index">Home</a>
+    <br />
+    <a asp-controller="Home" asp-action="My_Podcasts">My Podcasts</a>
+    <br />
+    <a asp-controller="Home" asp-action="Enter_Movies">Enter Movies</a>
+    <br />
+    <a asp-controller="Home" asp-action="List_Movies">List Movies</a>
+    <br />
+
+    @RenderBody()
+
+    <br />
+    <br />
+</body>
+</html>
