@@ -5,9 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace MovieSite.Models
-{
+{   
     public class Movie
-    {
+    {   
+        //Sets up the errors and fields in the movie model
         [Required(ErrorMessage ="You need to enter a Category!")]
         public string Category { get; set; }
         [Required(ErrorMessage = "You need to enter a Title!")]

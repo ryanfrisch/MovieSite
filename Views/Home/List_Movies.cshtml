@@ -17,7 +17,8 @@
         </thead>
         <tbody>
             @foreach (MovieSite.Models.Movie x in Model)
-            {
+            {   
+                // Makes sure the film displayed isn't independence day.
                 @if (x.Title != "Independence Day")
                 {
                     <tr>

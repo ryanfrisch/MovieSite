@@ -37,6 +37,7 @@ namespace MovieSite.Controllers
         [HttpPost]
         public IActionResult Enter_Movies(Movie movieEntered)
         {
+            //Makes sure form was valid before storing it to our temp storage, that way invalid forms aren't accepted.
             if (ModelState.IsValid)
             {
                 TempStorage.AddMovie(movieEntered);
