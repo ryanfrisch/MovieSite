@@ -7,30 +7,42 @@
 }
 
 
-@model IEnumerable<MovieSite.Models.Movie>
+@model MovieListViewModel
 
 
 <body>
-    <table>
+    <table class="table">
         <thead>
-            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th></tr>
+            <tr><th>Category</th><th>Title</th><th>Year</th><th>Director</th><th>Rating</th><th>Edited</th><th>Lent To</th><th>Notes</th><th></th><th></th></tr>
         </thead>
         <tbody>
-            @foreach (MovieSite.Models.Movie x in Model)
+            @foreach (var x in Model.movies)
             {   
                 // Makes sure the film displayed isn't independence day.
                 @if (x.Title != "Independence Day")
                 {
-                    <tr>
-                        <td>@x.Category</td>
-                        <td>@x.Title</td>
-                        <td>@x.Year</td>
-                        <td>@x.Director</td>
-                        <td>@x.Rating</td>
-                        <td>@x.Edited</td>
-                        <td>@x.Lent_To</td>
-                        <td>@x.Notes</td>
-                    </tr>
+            <tr>
+                <td>@x.Category</td>
+                <td>@x.Title</td>
+                <td>@x.Year</td>
+                <td>@x.Director</td>
+                <td>@x.Rating</td>
+                <td>@x.Edited</td>
+                <td>@x.Lent_To</td>
+                <td>@x.Notes</td>
+                <td>
+                    <form asp-action="PassMovieToEdit" method="post">
+                        <input type="hidden" asp-for="MovieId" value="@x.MovieId" />
+                        <button type="submit" class="btn btn-outline-secondary">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form asp-action="Delete_Movie" method="post">
+                        <input type="hidden" asp-for="MovieId" value="@x.MovieId" />
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
                 }
             }
         </tbody>

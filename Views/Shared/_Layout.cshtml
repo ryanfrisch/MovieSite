@@ -1,25 +1,27 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Joel Hilton Film Collection</title>
     <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
-<body>
-    <h1>@ViewBag.Title</h1>
-    <a></a>
-    <a asp-controller="Home" asp-action="Index">Home</a>
-    <br />
-    <a asp-controller="Home" asp-action="My_Podcasts">My Podcasts</a>
-    <br />
-    <a asp-controller="Home" asp-action="Enter_Movies">Enter Movies</a>
-    <br />
-    <a asp-controller="Home" asp-action="List_Movies">List Movies</a>
-    <br />
+<body class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">@ViewBag.Title</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="p-2 text-dark" asp-controller="Home" asp-action="My_Podcasts">My Podcasts</a>
+            <a class="p-2 text-dark" asp-controller="Home" asp-action="List_Movies">List Movies</a>
+        </nav>
+        <a class="btn btn-outline-primary" asp-controller="Home" asp-action="Enter_Movies">Enter Movies</a>
+    </div>
 
     @RenderBody()
 
-    <br />
-    <br />
 </body>
+
 </html>
